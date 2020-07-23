@@ -15,8 +15,6 @@ module.exports = {components: [${comps}]}
 
     const jsCode = transform(fullJsxCode, { presets: ['env', 'react'] }).code;
 
-    console.log({jsCode})
-    return []
     const { components } = eval(jsCode)
 
     return components
