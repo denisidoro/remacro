@@ -1,7 +1,8 @@
-import React from 'react';
-import myRender from './utils';
+import React from 'react'
+import render from './renderer'
+import parse from './parser'
 
-var htmlInput = `
+var markdown = `
 # Hello Word
 
 ## Heading 2
@@ -34,7 +35,10 @@ hi
 \`\`\`
 `
 
+const js = `
 const Box = ({ icon, children }) => "> :" + icon + ": " + children + ";"
-const Warning = ({ children }) => <Box icon="warning">{children}</Box>
 
-console.log(myRender(htmlInput, [Warning]))
+const Warning = ({ children }) => <Box icon="warning">{children}</Box>
+`
+
+console.log(render(markdown, parse(js)))

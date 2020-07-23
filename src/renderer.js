@@ -6,7 +6,9 @@ import { decode } from 'he';
 function zip(a, b) {
     var obj = {}
     for (var i = 0; i < a.length; a++) {
-        obj[a[i]] = b[i]
+        if (b[i]) {
+            obj[a[i]] = b[i]
+        }
     }
     return obj
 }
@@ -19,7 +21,7 @@ function getLowercaseDisplayName(component) {
     return getDisplayName(component).toLowerCase()
 }
 
-export default function myRender(htmlInput, reactComponents) {
+export default function render(markdown, reactComponents) {
     const names = reactComponents.map(getLowercaseDisplayName)
     const components = zip(names, reactComponents)
 
@@ -32,6 +34,6 @@ export default function myRender(htmlInput, reactComponents) {
         }
     }
 
-    const component = ReactHtmlParser(htmlInput, opts)
+    const component = ReactHtmlParser(markdown, opts)
     return decode(renderToStaticMarkup(component).replace(/\\n/g, '\n'))
 }
