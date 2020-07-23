@@ -30,7 +30,11 @@ export default function render(markdown, reactComponents) {
             if (node.type !== "tag") return
             const CurrentComponent = components[node.name]
             if (!CurrentComponent) return
-            return <CurrentComponent {...node.attribs}>{node.children.map(x => x.data)}</CurrentComponent>
+            return React.createElement(
+                CurrentComponent,
+                [node.attribs],
+                [...node.children.map(x => x.data)]
+              )
         }
     }
 

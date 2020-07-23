@@ -1,14 +1,14 @@
 import React from 'react'
 import { transform } from "@babel/standalone"
 
-const createElement = React.createElement
+const reactProxy = React
 
 export default function parse(jsxCode) {
 
     const comps = 'Warning'
 
     const fullJsxCode = `
-const React = {createElement}
+const React = reactProxy
 ${jsxCode}
 module.exports = {components: [${comps}]}
 `
