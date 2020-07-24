@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export PROJ_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." >/dev/null && pwd)"
+
+cd "${PROJ_HOME}/core"
+rm -rf lib || true
+mkdir -p lib
+yarn run prepublish
+
+cd "${PROJ_HOME}/web"
+rm -f yarn.lock || true
+rm -rf node_modules/remacro || true
+yarn install
