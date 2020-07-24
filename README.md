@@ -1,14 +1,21 @@
 Plain-text macro expander with React-inspired widgets. Markdown with steroids. :muscle:
 
-## Main usage
+## Usage
 
 With this tool it's possible to generate a superset of markdown. 
 
-For example, given the following code...
-```javascript
-const Box = ({ icon, children }) => "> :" + icon + ": " + children
-const LoveBox = ({ children }) => <Box icon="heart">{children}</Box>
-```
+It also works for any plain-text content, so it's able to generate a superset for source codes as well.
+
+Examples: 
+
+<table>
+<tr>
+<td> Input </td> <td> Macros </td> <td> Output </td>
+</tr>
+<tr>
+</td>
+<td>
+
 ```markdown
 # Hello World
 
@@ -17,7 +24,18 @@ Lorem ipsum
 <LoveBox>This is a custom widget</LoveBox>
 ```
 
-...the output would be:
+</td>
+<td>
+
+```javascript
+const Box = ({ icon, children }) => "> :" + icon + ": " + children
+
+const LoveBox = ({ children }) => <Box icon="heart">{children}</Box>
+```
+
+</td>
+<td>
+
 ```markdown
 # Hello World
 
@@ -26,23 +44,30 @@ Lorem ipsum
 > :heart: This is a custom widget
 ```
 
-## Other usages
+</td>
+</tr>
 
-This tool works for any plain-text content, so it's able to generate a superset for source codes as well.
+<tr>
+<td> 
 
-For example, given the following code...
-```javascript
-const Err = ({ children }) => `if err != nil { 
-   return nil, err; 
-}
-return ` + children + ", nil"
-```
 ```go
 foo, err := bar()
-<Err>foo</Err>
+<Err v=foo />
+```
+  
+</td>
+<td>
+
+```javascript
+const Err = ({ v }) => `if err != nil { 
+   return nil, err; 
+}
+return ` + v + ", nil"
 ```
 
-...the output would be:
+</td>
+<td>
+
 ```go
 foo, err := bar()
 if err != nil { 
@@ -50,6 +75,10 @@ if err != nil {
 }
 return foo, nil
 ```
+
+</td>
+</tr>
+</table>
 
 ## Live editor
 
