@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export PROJ_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." >/dev/null && pwd)"
+
+cd "${PROJ_HOME}/cli"
+
+./cli.js --input "$(cat "../tests/markdown.md")"
+
+echo
+echo "---------"
+echo
+
+./cli.js --input "$(cat "../tests/markdown.md")" --macros "$(cat "../tests/markdown.js")"

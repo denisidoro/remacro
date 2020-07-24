@@ -30,7 +30,7 @@ export default function render(markdown, reactComponents) {
             if (!C) return
             return React.createElement(
                 C,
-                [node.attribs],
+                node.attribs,
                 [...node.children.map(x => x.data)]
               )
         }
