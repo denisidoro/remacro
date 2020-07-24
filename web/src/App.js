@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useMemo } from 'react'
 import './App.css'
 import './prism.css'
-import { transpile } from 'reactdown'
+import { transpile } from './core'
 import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
@@ -11,27 +11,24 @@ import 'prismjs/components/prism-jsx';
 import * as ReactMarkdown from 'react-markdown';
 import * as EmojiConvertor from 'emoji-js';
 
+const defaultJs = `const Box = ({ icon, children }) => "> :" + icon + ": " + children
 
-const defaultJs = `
-const Box = ({ icon, children }) => "> :" + icon + ": " + children + ";"
-const LoveBox = ({ children }) => <Box icon="heart">{children}</Box>
-`
+const LoveBox = ({ children }) => <Box icon="heart">{children}</Box>`
 
 const defaultMarkdown = `
 # Hello World
+
 Lorem ipsum
 
 <LoveBox>This is a custom widget</LoveBox>
 
-* List Item 3
 | hi | hello |
 | :--: | :--: |
 | foo | bar |
 
 * List Item 1
+  * List Item 1.1
 * List Item 2
-  * List Item 2.1
-  * List Item 2.2
 `
 
 const Toggle = ({value, onChange}) => {
@@ -44,7 +41,7 @@ const Toggle = ({value, onChange}) => {
       type="checkbox"
       checked={value}
       onChange={handleChange} />
-    <span>Render markdown</span>
+    <span>Render output as markdown</span>
   </span>
 }
 
@@ -71,6 +68,7 @@ function safeTranspile(markdown, js) {
     try {
       c = transpile(markdown, js)
     } catch (err) {
+      console.log(err)
       c = markdown
     }
     return emoji.replace_colons(c)
