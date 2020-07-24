@@ -15,8 +15,7 @@ const defaultJs = `const Box = ({ icon, children }) => "> :" + icon + ": " + chi
 
 const LoveBox = ({ children }) => <Box icon="heart">{children}</Box>`
 
-const defaultMarkdown = `
-# Hello World
+const defaultMarkdown = `# Hello World
 
 Lorem ipsum
 
@@ -108,8 +107,13 @@ const EditorPane = () => {
 
 const Header = () => {
   return <div className="header-container">
-    <span><h2>remacro</h2></span>
-    <span><h4>a superset of markdown React-like widgets</h4></span>
+    <div style={{float: "left"}}>
+      <span><h2>remacro</h2></span>
+      <span><h5>a plain-text macro expander with React-inspired widgets</h5></span>
+    </div>
+    <div style={{float: "right"}}>
+      <span><a href="https://github.com/denisidoro/remacro"><h4>GitHub</h4></a></span>
+    </div>
   </div>
 }
 

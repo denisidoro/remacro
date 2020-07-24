@@ -49,7 +49,7 @@ background: rgb(0,123,148);
   font-size: medium;
 }
 
-.header-container h2, .header-container h4 {
+.header-container h2, .header-container h5, .header-container h4 {
   display: inline-block;
   margin: 20px;
 }
