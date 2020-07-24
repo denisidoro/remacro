@@ -9,6 +9,5 @@ mkdir -p lib
 yarn run prepublish
 
 cd "${PROJ_HOME}/web"
-rm -f yarn.lock || true
 rm -rf node_modules/remacro || true
 yarn install

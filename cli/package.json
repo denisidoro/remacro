@@ -1,0 +1,41 @@
+{
+	"name": "remacro-cli",
+	"version": "0.1.0",
+	"description": "Plain-text macro expander with React-inspired widgets",
+	"license": "MIT",
+	"repository": "denisidoro/remacro",
+	"author": {
+		"name": "Denis Isidoro",
+		"url": "https://denisidoro.github.com"
+	},
+	"publishConfig": { 
+		"registry": "https://npm.pkg.github.com/" 
+	},
+	"bin": {
+		"remacro": "cli.js"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
+	},
+	"files": [
+		"cli.js"
+	],
+	"keywords": [
+		"react",
+		"markdown",
+		"markup",
+		"macro"
+	],
+	"dependencies": {
+		"remacro": "file:../core"
+	},
+	"devDependencies": {}
+}
