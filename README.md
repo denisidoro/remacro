@@ -78,7 +78,9 @@ return foo, nil
 
 </td>
 </tr>
-</table>
+</table
+
+The syntax for writing macros is the same for writing[components in React] (https://reactjs.org/docs/components-and-props.html).
 
 ## Live editor
 
