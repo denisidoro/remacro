@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Plain-text macro expander with React-inspired widgets. Markdown with steroids. :muscle:
 
 ## Available Scripts
 
