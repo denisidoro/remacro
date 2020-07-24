@@ -10,12 +10,17 @@
 	"engines": {
 		"node": ">=8"
 	},
+	"publishConfig": { 
+		"registry": "https://registry.npmjs.org" 
+	},
 	"main": "lib/index.js",
 	"scripts": {
 	  "prepublish": "npx babel src --out-dir lib"
 	},
 	"files": [
-		"index.js"
+		"lib/index.js",
+		"lib/parser.js",
+		"lib/renderer.js"
 	],
 	"keywords": [
 		"markdown",

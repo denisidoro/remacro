@@ -1,6 +1,6 @@
 {
 	"name": "remacro",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Plain-text macro expander with React-inspired widgets",
 	"license": "MIT",
 	"repository": "denisidoro/remacro",
@@ -9,7 +9,7 @@
 		"url": "https://denisidoro.github.com"
 	},
 	"publishConfig": { 
-		"registry": "https://npm.pkg.github.com/" 
+		"registry": "https://registry.npmjs.org" 
 	},
 	"bin": {
 		"remacro": "cli.js"
@@ -35,7 +35,7 @@
 		"macro"
 	],
 	"dependencies": {
-		"remacro-core": "file:../core"
+		"remacro-core": "0.1.0"
 	},
 	"devDependencies": {}
 }
