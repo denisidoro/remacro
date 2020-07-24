@@ -1,75 +1,126 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useMemo } from 'react'
 import './App.css'
+import './prism.css'
 import { transpile } from 'reactdown'
-import Highlight from 'react-highlight'
+import Editor from 'react-simple-code-editor';
+import { highlight, languages } from 'prismjs/components/prism-core';
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-jsx';
+import * as ReactMarkdown from 'react-markdown';
+import * as EmojiConvertor from 'emoji-js';
+
 
 const defaultJs = `
 const Box = ({ icon, children }) => "> :" + icon + ": " + children + ";"
-const Warning = ({ children }) => <Box icon="warning">{children}</Box>
+const LoveBox = ({ children }) => <Box icon="heart">{children}</Box>
 `
 
 const defaultMarkdown = `
 # Hello World
-## Heading 2
-### Heading 3
-> **Warning**: Blockquotes work as well
-* List Item 1
-* List Item 2
-  * List Item 2.1
-  * List Item 2.2
+Lorem ipsum
+
+<LoveBox>This is a custom widget</LoveBox>
+
 * List Item 3
 | hi | hello |
 | :--: | :--: |
 | foo | bar |
-[Readme](README.md)
-<Warning>lorem ipsum</Warning>
-Even \`code\`:
-\`\`\`javascript
-function greet(name) {
-  console.log("Hello " + name)
-}
-hi
-\`\`\`
+
+* List Item 1
+* List Item 2
+  * List Item 2.1
+  * List Item 2.2
 `
 
-const CodeArea = ({ value, onChange }) => {
-  const handleChange = React.useCallback(event => {
-    onChange(event.target.value)
+const Toggle = ({value, onChange}) => {
+  const handleChange = useCallback(event => {
+    onChange(event.target.checked)
   }, [onChange])
 
-  return <Highlight language='javascript'>
-  {value}
-</Highlight>
+  return <span style={{fontSize: "small"}} >
+    <input
+      type="checkbox"
+      checked={value}
+      onChange={handleChange} />
+    <span>Render markdown</span>
+  </span>
+}
+
+const CodeArea = ({ value, onChange, language }) => {
+  return <div>
+    <Editor
+      className="editor"
+      value={value}
+      onValueChange={onChange}
+      highlight={code => highlight(code, language)}
+      padding={10}
+      style={{
+        fontFamily: '"Fira code", "Fira Mono", monospace',
+        fontSize: 13,
+      }}
+    />
+  </div>
+}
+
+const emoji = new EmojiConvertor();
+
+function safeTranspile(markdown, js) {
+    let c
+    try {
+      c = transpile(markdown, js)
+    } catch (err) {
+      c = markdown
+    }
+    return emoji.replace_colons(c)
 }
 
 const Rendered = ({ markdown, js }) => {
-  let content
-  try {
-    content = transpile(markdown, js)
-  } catch (err) {
-    content = markdown
-  }
-  return <pre>{content}</pre>
+  const [isMarkdown, setIsMarkdown] = useState(true)
+
+  const content = useMemo(event => {
+    return safeTranspile(markdown, js)
+  }, [markdown, js])
+
+  return <div>
+    <Toggle value={isMarkdown} onChange={setIsMarkdown} />
+    <div className="rendered-markdown markdown-body">
+    { isMarkdown ? <ReactMarkdown source={content} /> : <pre>{content}</pre> }
+  </div>
+</div>
 }
 
-function Editor() {
+const EditorPane = () => {
   const [markdown, setMarkdown] = useState(defaultMarkdown)
   const [js, setJs] = useState(defaultJs)
 
   return (
-    <p>
-      <CodeArea value={markdown} onChange={setMarkdown} />
-      <CodeArea value={js} onChange={setJs} />
-      <Rendered markdown={markdown} js={js} />
-    </p>
+    <div className="flex-container">
+      <div className="flex-item code">
+        <CodeArea value={js} onChange={setJs} language={languages.jsx} />
+        <CodeArea value={markdown} onChange={setMarkdown} language={languages.markup} />
+      </div>
+      <div className="flex-item rendered">
+        <Rendered markdown={markdown} js={js} />
+      </div>
+    </div>
   );
+}
+
+const Header = () => {
+  return <div className="header-container">
+    <span><h2>reactdown</h2></span>
+    <span><h4>a superset of markdown React-like widgets</h4></span>
+  </div>
 }
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Editor />
+        <Header />
+        <EditorPane />
       </header>
     </div>
   );

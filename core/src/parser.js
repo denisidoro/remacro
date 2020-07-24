@@ -3,14 +3,21 @@ import { transform } from "@babel/standalone"
 
 const reactProxy = React
 
-export default function parse(jsxCode) {
+function withExports(jsxCode) {
+    jsxCode
+        .replace('/^const/', 'export const')
+        .replace('/^var/', 'export var')
+        .replace('/^function/', 'export function')
+}
 
-    const comps = 'Warning'
+export default function parse(jsxCode) {
+    const codeWithExports = withExports(jsxCode)
+
+    console.log(codeWithExports)
 
     const fullJsxCode = `
 const React = reactProxy
-${jsxCode}
-module.exports = {components: [${comps}]}
+${codeWithExports}
 `
 
     const jsCode = transform(fullJsxCode, { presets: ['env', 'react'] }).code;
