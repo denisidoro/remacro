@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/remacro/precache-manifest.d5c0f2633d3c3b5e67e3fde16b9a2c68.js"
+  "/remacro/precache-manifest.fc5bdd5aa88ade40e07a1d198dac0a41.js"
 );
 
 self.addEventListener('message', (event) => {

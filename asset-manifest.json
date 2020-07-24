@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/remacro/static/css/main.eef71a95.chunk.css",
-    "main.js": "/remacro/static/js/main.91854cb1.chunk.js",
-    "main.js.map": "/remacro/static/js/main.91854cb1.chunk.js.map",
-    "runtime-main.js": "/remacro/static/js/runtime-main.92b20b65.js",
-    "runtime-main.js.map": "/remacro/static/js/runtime-main.92b20b65.js.map",
-    "static/js/2.cebc3cfd.chunk.js": "/remacro/static/js/2.cebc3cfd.chunk.js",
-    "static/js/2.cebc3cfd.chunk.js.map": "/remacro/static/js/2.cebc3cfd.chunk.js.map",
+    "main.js": "/remacro/static/js/main.d21d8f9e.chunk.js",
+    "main.js.map": "/remacro/static/js/main.d21d8f9e.chunk.js.map",
+    "runtime-main.js": "/remacro/static/js/runtime-main.f6258250.js",
+    "runtime-main.js.map": "/remacro/static/js/runtime-main.f6258250.js.map",
+    "static/js/2.a59e931a.chunk.js": "/remacro/static/js/2.a59e931a.chunk.js",
+    "static/js/2.a59e931a.chunk.js.map": "/remacro/static/js/2.a59e931a.chunk.js.map",
     "index.html": "/remacro/index.html",
-    "precache-manifest.d5c0f2633d3c3b5e67e3fde16b9a2c68.js": "/remacro/precache-manifest.d5c0f2633d3c3b5e67e3fde16b9a2c68.js",
+    "precache-manifest.fc5bdd5aa88ade40e07a1d198dac0a41.js": "/remacro/precache-manifest.fc5bdd5aa88ade40e07a1d198dac0a41.js",
     "service-worker.js": "/remacro/service-worker.js",
     "static/css/main.eef71a95.chunk.css.map": "/remacro/static/css/main.eef71a95.chunk.css.map",
-    "static/js/2.cebc3cfd.chunk.js.LICENSE.txt": "/remacro/static/js/2.cebc3cfd.chunk.js.LICENSE.txt"
+    "static/js/2.a59e931a.chunk.js.LICENSE.txt": "/remacro/static/js/2.a59e931a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.92b20b65.js",
-    "static/js/2.cebc3cfd.chunk.js",
+    "static/js/runtime-main.f6258250.js",
+    "static/js/2.a59e931a.chunk.js",
     "static/css/main.eef71a95.chunk.css",
-    "static/js/main.91854cb1.chunk.js"
+    "static/js/main.d21d8f9e.chunk.js"
   ]
 }
