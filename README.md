@@ -86,7 +86,17 @@ Click [here](https://denisidoro.github.io/remacro/) for a web-based editor with 
 
 ## CLI
 
-TODO
+#### Installation
+
+```bash
+npm install -g remacro
+```
+
+#### Call
+
+```
+remacro --input "$(cat file1.md)" --macros "$(cat file2.js)"
+```
 
 ## Integration with VSCode
 
