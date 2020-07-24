@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { transpile } from 'reactdown';
+import React, { useState, useCallback } from 'react'
+import './App.css'
+import { transpile } from 'reactdown'
+import Highlight from 'react-highlight'
 
 const defaultJs = `
 const Box = ({ icon, children }) => "> :" + icon + ": " + children + ";"
@@ -9,7 +9,7 @@ const Warning = ({ children }) => <Box icon="warning">{children}</Box>
 `
 
 const defaultMarkdown = `
-# Hello Word
+# Hello World
 ## Heading 2
 ### Heading 3
 > **Warning**: Blockquotes work as well
@@ -32,38 +32,44 @@ hi
 \`\`\`
 `
 
-const CodeArea = ({value, onChange}) => {
-  function handleChange(event) {
-    onChange(event.target.value);
-  }
+const CodeArea = ({ value, onChange }) => {
+  const handleChange = React.useCallback(event => {
+    onChange(event.target.value)
+  }, [onChange])
 
-  return <textarea value={value} onChange={handleChange} />
+  return <Highlight language='javascript'>
+  {value}
+</Highlight>
 }
 
-const Rendered = ({value}) => {
-  return <pre>{value}</pre>
-}
-
-function App() {
-
-  const [markdown, setMarkdown] = useState(defaultMarkdown)
-  const [js, setJs] = useState(defaultJs)
-
+const Rendered = ({ markdown, js }) => {
   let content
   try {
     content = transpile(markdown, js)
   } catch (err) {
-    content = "ERROR"
+    content = markdown
   }
+  return <pre>{content}</pre>
+}
 
+function Editor() {
+  const [markdown, setMarkdown] = useState(defaultMarkdown)
+  const [js, setJs] = useState(defaultJs)
+
+  return (
+    <p>
+      <CodeArea value={markdown} onChange={setMarkdown} />
+      <CodeArea value={js} onChange={setJs} />
+      <Rendered markdown={markdown} js={js} />
+    </p>
+  );
+}
+
+function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          <CodeArea value={markdown} onChange={setMarkdown} />
-          <CodeArea value={js} onChange={setJs} />
-          <Rendered value={content} />
-        </p>
+        <Editor />
       </header>
     </div>
   );
