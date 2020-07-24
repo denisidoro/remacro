@@ -5,14 +5,14 @@ const reactProxy = React
 
 function getComps(jsxCode) {
     var matches = []
-    ('\n' + jsxCode).replace(/[^\n]\s*(const|var|function) +(\w[\w\d]*)/gi, (m, p1, p2) => {
+    jsxCode.replace(/\n\s*(const|var|function) +(\w[\w\d]*)/gi, (m, p1, p2) => {
       matches.push(p2)
     })
     return matches
 }
 
 export default function parse(jsxCode) {
-    const comps = getComps(jsxCode)
+    const comps = getComps('\n'+jsxCode)
 
     const fullJsxCode = `
 const React = reactProxy
