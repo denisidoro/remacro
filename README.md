@@ -1,10 +1,10 @@
-Plain-text macro expander with React-inspired widgets. Markdown with steroids. :muscle:
+# remacro
 
 ## Usage
 
-With this tool it's possible to generate a superset of markdown. 
+With this tool it's possible to generate a superset of markdown, so that you don't want to repeat yourself. 
 
-It also works for any plain-text content, so it's able to generate a superset for source codes as well.
+It also works for any plain-text content, so it's able to expand source code as well.
 
 Examples: 
 
