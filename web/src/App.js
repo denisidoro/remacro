@@ -108,7 +108,7 @@ const EditorPane = () => {
 
 const Header = () => {
   return <div className="header-container">
-    <span><h2>reactdown</h2></span>
+    <span><h2>remacro</h2></span>
     <span><h4>a superset of markdown React-like widgets</h4></span>
   </div>
 }

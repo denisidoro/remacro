@@ -1,9 +1,9 @@
 {
-	"name": "reactdown",
+	"name": "remacro",
 	"version": "0.1.0",
 	"description": "My awesome module",
 	"license": "MIT",
-	"repository": "denisidoro/reactdown",
+	"repository": "denisidoro/remacro",
 	"author": {
 		"name": "Denis"
 	},
