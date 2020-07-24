@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-const remacro = require('remacro');
+const remacro = require('remacro-core');
 
 const argv = process.argv;
 

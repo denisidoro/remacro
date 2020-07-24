@@ -1,5 +1,5 @@
 {
-	"name": "remacro-cli",
+	"name": "remacro",
 	"version": "0.1.0",
 	"description": "Plain-text macro expander with React-inspired widgets",
 	"license": "MIT",
@@ -35,7 +35,7 @@
 		"macro"
 	],
 	"dependencies": {
-		"remacro": "file:../core"
+		"remacro-core": "file:../core"
 	},
 	"devDependencies": {}
 }
