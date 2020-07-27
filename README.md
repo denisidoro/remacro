@@ -28,7 +28,7 @@ Lorem ipsum
 <td>
 
 ```javascript
-const Box = ({ icon, children }) => "> :" + icon + ": " + children
+const Box = ({ icon, children }) => `> :${icon}: ${children}`
 
 const LoveBox = ({ children }) => <Box icon="heart">{children}</Box>
 ```
@@ -60,7 +60,7 @@ foo, err := bar()
 
 ```javascript
 const Err = ({ v }) => `if err != nil { 
-   return nil, err; 
+   return nil, err 
 }
 return ` + v + ", nil"
 ```
@@ -71,7 +71,7 @@ return ` + v + ", nil"
 ```go
 foo, err := bar()
 if err != nil { 
-   return nil, err; 
+   return nil, err 
 }
 return foo, nil
 ```
