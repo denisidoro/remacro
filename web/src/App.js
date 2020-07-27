@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useMemo } from 'react'
 import './App.css'
 import './prism.css'
-import { transpile } from 'remacro'
+import { transpile } from 'remacro-core'
 import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
@@ -60,7 +60,11 @@ const CodeArea = ({ value, onChange, language }) => {
   </div>
 }
 
-const emoji = new EmojiConvertor();
+const emoji = new EmojiConvertor()
+// emoji.replace_mode = 'native'
+emoji.allow_native = true
+emoji.use_css_imgs = false
+emoji.avoid_ms_emoji = false
 
 function safeTranspile(markdown, js) {
     let c

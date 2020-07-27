@@ -103,3 +103,7 @@ remacro --input "$(cat file1.md)" --macros "$(cat file2.js)"
 ## Integration with VSCode
 
 TODO
+
+## Provided macros
+
+- [Confluence wiki](templates/confluence)

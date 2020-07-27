@@ -5,8 +5,8 @@ const reactProxy = React
 
 function getComps(jsxCode) {
     var matches = []
-    jsxCode.replace(/\n\s*(const|var|function) +(\w[\w\d]*)/gi, (m, p1, p2) => {
-      matches.push(p2)
+    jsxCode.replace(/\nconst +(\w[\w\d]*)/gi, (m, p1) => {
+      matches.push(p1)
     })
     return matches
 }
