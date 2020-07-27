@@ -2,7 +2,7 @@
 
 ## Usage
 
-With this tool it's possible to generate a superset of markdown, so that you don't want to repeat yourself. 
+With this tool it's possible to generate a superset of markdown, so that you don't repeat yourself. 
 
 It also works for any plain-text content, so it's able to expand source code as well.
 
