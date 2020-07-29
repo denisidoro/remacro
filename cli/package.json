@@ -8,8 +8,8 @@
 		"name": "Denis Isidoro",
 		"url": "https://denisidoro.github.com"
 	},
-	"publishConfig": { 
-		"registry": "https://registry.npmjs.org" 
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org"
 	},
 	"bin": {
 		"remacro": "cli.js"
@@ -35,6 +35,7 @@
 		"macro"
 	],
 	"dependencies": {
+		"fs-extra": "^9.0.1",
 		"remacro-core": "0.1.0"
 	},
 	"devDependencies": {}
