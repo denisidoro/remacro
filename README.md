@@ -97,7 +97,7 @@ npm install -g remacro
 #### Call
 
 ```
-remacro --input "$(cat file1.md)" --macros "$(cat file2.js)"
+remacro --input "$(cat input.md)" --macros "$(cat macros.js)" > output.md
 ```
 
 ## Integration with VSCode
