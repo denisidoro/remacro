@@ -1,5 +1,7 @@
 # remacro
 
+:warning: This has been deprecated in favor of tools such as [zola](https://github.com/getzola/zola)
+
 ## Usage
 
 With this tool it's possible to generate a superset of markdown, so that you don't repeat yourself. 
